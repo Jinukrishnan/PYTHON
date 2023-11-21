@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models  import Place
+#  Create your views here.
 def home(req):
-    return render(req,'index.html')
+    obj=Place.objects.all()
+    return render(req,'index.html',{'result':obj})

@@ -210,6 +210,7 @@
 			<div class="row why_row">
 				
 				<!-- Why item -->
+				{% for i in result %}
 				<div class="col-lg-4 why_col">
 					<div class="why_item">
 						<div class="why_image">
@@ -219,16 +220,17 @@
 							</div>
 						</div>
 						<div class="why_content text-center">
-							<div class="why_title">Fast Services</div>
+							<div class="why_title">{{i.name}}</div>
 							<div class="why_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+								<p>{{i.desc}}</p>
 							</div>
 						</div>
 					</div>
 				</div>
+				{%endfor%}
 
 				<!-- Why item -->
-				<div class="col-lg-4 why_col">
+				{% comment %} <div class="col-lg-4 why_col">
 					<div class="why_item">
 						<div class="why_image">
 							<img src="{% static 'images/why_2.jpg' %}" alt="">
@@ -243,10 +245,10 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> {% endcomment %}
 
 				<!-- Why item -->
-				<div class="col-lg-4 why_col">
+				{% comment %} <div class="col-lg-4 why_col">
 					<div class="why_item">
 						<div class="why_image">
 							<img src="{% static 'images/why_3.jpg' %}" alt="">
@@ -261,7 +263,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> {% endcomment %}
 
 			</div>
 		</div>
