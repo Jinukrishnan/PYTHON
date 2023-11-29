@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Home Pages</h1>
-
+ {% extends 'base.html' %}
+   
+    {% block body %}
     {% for i in movies %}
-   <a href="movie/{{i.id}}">{{i.name}}</a>
-    <br>
-    {% endfor %}
-</body>
-</html>
+    <!-- <a href="movie/{{i.id}}">{{i.name}}</a> -->
+    <!-- second way for ural path to give id -->
+    <a href="{% url 'movieApp:detail' i.id %}">{{i.name}}</a>
+ 
+     <br>
+     {% endfor %}
+    {% endblock %}
