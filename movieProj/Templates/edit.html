@@ -3,7 +3,12 @@
 
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  {{form.as_p}}
+<!--  {{form.as_p}}-->
+  <input type="text" name="name" value="{{movie.name}}" placeholder="name"><br>
+  <input type="text" name="desc" value="{{movie.desc}}" placeholder="Description"><br>
+  <input type="text" name="year" value="{{movie.year}}"><br>
+  <img src="{{movie.img.url}}"><br>
+  <input type="file" name="image" value="{{movie.img}}"><br>
   <input type="submit">
 </form>
 
