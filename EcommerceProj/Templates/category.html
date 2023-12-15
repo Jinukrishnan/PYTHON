@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.desc|truncatewords:155}}
+    {% else %}
+        Welcome to ABC Store Where you can buy dufferent items....
+    {% endif %}
+{% endblock %}
+
+{% block title %}  
+    {% if category %}
+        {{ category.name}}-ABC Store
+    {% else %}
+        See Our New Collections -ABC Store
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <!-- {% if category %}
+        <div>
+            <div>
+                <p><a href="{% url 'eapp:allProdCat' %}">Our Product Collection</a></p>
+            </div>
+        </div>
+    {% endif %} -->
+    <div class="container">
+        <div  class="category">
+            {% if category %}
+            <h1>{{category.name}}</h1>
+                <img src="{{category.image.url}}" class="shadow"  alt="{{category.name}}">
+                <div >
+           
+                    <p class="text-center py-3">{{category.desc}}</p>
+                </div>
+        </div>
+    
+        
+        {% else %}
+            <div>
+                <h1>Our Product Collections</h1>
+                <img src="{% static 'img/banner.jpg' %}" class="shadow" width="100%" height="300px" alt="out products">
+                <div>
+               
+                    <p class="">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex nisi impedit quam ut quae. Officia asperiores est unde rerum quos vero beatae, autem quam! Vel temporibus animi maxime provident quae!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum molestiae corporis, quaerat ratione ducimus perspiciatis expedita voluptatem aliquam unde praesentium explicabo nemo ullam natus culpa obcaecati perferendis hic. Esse, nisi?
+                    </p>
+        
+                </div>
+            </div>
+            <br>
+            
+        {% endif %}
+    
+        <div>
+            <div class="row d-flex justify-content-center">
+                {% for product in products %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 my-3 mx-1">
+                        <div class="card shadow" style="width: 15rem;">
+                            <img src="{{product.image.url}}" class="card-img-top" height="300px"  alt="{{product.name}}">
+                            <div class="card-body text-center">
+                              <h5 class="card-title">{{product.name}}</h5>
+                              <p class="card-text text-center">{{product.price}}</p>
+                              <a href="{{product.get_url}}" class="btn btn-outline-danger shadow">Details</a>
+                            </div>
+                          </div>
+                        <!-- <div>
+                            <a >
+                                <img src="" >
+                            </a>
+                            <div>
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div> -->
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

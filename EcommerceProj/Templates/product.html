@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}  
+    {% if product %}
+        {{ product.name}}-ABC Store
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <div>
+            <p><a href="{% url 'eapp:allProdCat' %}">Home</a> |<a href="{{product.category.get_utl}}">{{product.category}}</a> |{{product.name}}</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-12">
+            <div>
+                <img src="{{product.image.url}}" class="w-100 shadow" alt="{{product.name}}">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
+            <div>
+                <h2 class="text-uppercase">{{product.name}}</h2>
+                <h4 class="text-success">${{product.price}}</h4>
+                <p class="text-uppercase"><u>product Description</u></p>
+                <p class="text-justify">{{product.desc}}</p>
+                {% if product.stock <= 0 %}
+                    <p class="text-secondary"><b>OUT OF STOCK</b></p>
+                {% else %}
+                    <a href="" class="btn btn-warning">Add to Cart</a>
+                {% endif %}
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
