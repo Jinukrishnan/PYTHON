@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/',include('EcommerceApp.urls')),
     path('search/',include('searchApp.urls')),
+    path('cart/',include('cart.urls')),
 ]
 
 
