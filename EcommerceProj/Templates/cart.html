@@ -16,7 +16,7 @@
         <div class="text-center">
             <h1 class="text-center my_title">Your Shoping Cart is Empty</h1>
             <br>
-            <p class="text-center">Please Click<a href="{% url 'eshop:allProdCart' %}">Herare</a>to continue Shopping</p>
+            <p class="text-center">Please Click<a href="{% url 'eapp:allProdCat' %}">Herare</a>to continue Shopping</p>
         </div>
     </div>
     {% else %}
@@ -42,7 +42,7 @@
                         {% for cart_item in cart_items %}
                         <tr>
                             <td>
-                            <a href="cart_item.product.get_absolute_url"><img src="{{cart_item.product.image.url}}" alt="{{cart_item.product.name}}" class="float-left rounded custom_image"></a>
+                            <a href="cart_item.product.get_absolute_url"><img src="{{cart_item.product.image.url}}" width="100px" alt="{{cart_item.product.name}}" class="float-left rounded custom_image"></a>
                             </td>
                             <td class="text-center">
                                 {{cart_item.product.name}}
@@ -51,14 +51,22 @@
                                 <br>
                                 $ {{cart_item.product.price}}
                                 <br>
-                                QTY:{{cart_item.quantity}} X $ {{cart_item}}
+                                       QTY:{{cart_item.quantity}} X $
                             </td>
                             <td>
                                 $ {{cart_item.sub_total}}
                             </td>
                             {% if cart_item.quantity < cart_item.product.stock %}
                             <td>
-                                <a href="{% url 'cart:add_cart' cart_item.product %}">aaa</a>
+                                <a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom_a">&nbsp;<button>+</button></a>
+                                <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a">&nbsp;<button>-</button></a>
+                                <a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_a">&nbsp;<button>Del</button></a>
+                            </td>
+                            {% else %}
+                            <td>
+                             
+                                <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a">&nbsp;<button>-</button></a>
+                                <a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_a">&nbsp;<button>Del</button></a>
                             </td>
                             {% endif %}
                         </tr>
@@ -66,7 +74,30 @@
                     </tbody>
                 </table>
             </div>
-
+            <div class="col-12 col-sm=12 col-md-12 col-lg-6 text-center">
+                <table class="table my_custom_table">
+                    <thead class="my_custom_thead">
+                        <tr>
+                            <th>
+                                Checkout
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Please review your shopping cart items before proceeding with the prder payments</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Total Amout : <strong>{{total}}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mx-auto">
+                    <a href="{% url 'eapp:allProdCat' %}" class="btn btn-secondary btn-block my_custom_table">Continue shopping</a>
+                </div>
+            </div>
         </div>
     </div>
 {% endif %}
