@@ -1,0 +1,67 @@
+{% load static %}
+    <nav class="navbar navbar-expand-lg bg-light ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img class="logo" src="{% static 'images/logo.svg' %}" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item text-light">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+             
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu ">
+                  <li><a class="dropdown-item" href="{% url 'shop:home' %}">ALL PRODUCTS</a></li>
+
+                  {% for i in cat %}
+                  <li><a class="dropdown-item" href="{{i.get_url}}">{{i.name}}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-black">boAt truely yours</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-black">Gift with boAt</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-black">Corporate Orders</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-black">More</a>
+              </li>
+              <form class="d-flex" role="search" action="{% url 'search:search' %}" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+              </form>
+              </ul>
+              <ul class="navbar-nav">
+              <li >
+                <a href="{% url 'credential:register' %}"><button>register</button></a>
+            </li>
+            
+            {% if user.is_authenticated %}
+                <li >
+                  <a href="{% url 'credential:logout' %}"><button>Logout</button></a>
+                </li>
+                <li><a class="nav-link active text-dark" href="#">{{ user.username }}</a></li>
+            {% else %}
+                <li><a href="{% url 'credential:login' %}"><button>login</button></a></li>
+            {% endif %}
+            
+
+
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    
+
+    
+     
