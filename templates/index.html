@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action=""  id="sub">
+    <input type="text" placeholder="name" id="name">
+    <input type="number" placeholder="Phone" id="phone">
+    <input type="submit">
+    </form>
+
+  <ul>
+   
+  </ul>
+</body>
+
+<script>
+    document.getElementById('sub').addEventListener('submit',(e)=>{
+        //  e.preventDefault();
+         let name=document.getElementById('name').value;
+         let phone=document.getElementById('phone').value;
+        //  console.log(name,phone);
+
+        fetch('http://127.0.0.1:8000/addphone/',{
+            method:"post",
+            body:JSON.stringify({"name":name,"phone":phone})
+        }).then((res)=>{console.log(res);}).catch((error)=>{console.log(error);})
+    })
+    // sub(e)
+    // {   
+    //     e.preventDefault();
+    //     console.log("hai");
+    // }
+
+
+    async function  get()
+    {
+         fetch('http://127.0.0.1:8000/getphone/')
+         .then(res=>res.json())
+         .then(data=>
+         data.map((dt)=>{
+            console.log(dt.name);
+         }))
+         
+    
+    
+    }   
+    get();
+</script>
+</html>
