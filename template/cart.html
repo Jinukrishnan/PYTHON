@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container c1">
+    <div class="row">
+        <div class="col-lg-3">
+            <h4>MY CART</h4>
+            <img class="im" src="{{data.thumbnail}}" alt="">
+        </div>
+        <div class="col-lg-6 m">
+            <h2>{{data.title}}</h2>
+            <p>{{data.description}}</p>
+            <h1 class="price"><span class="material-symbols-outlined">
+                currency_rupee
+                </span>{{data.price}}</h1><p class="discount">{{data.discountPercentage}}%off</p>
+            <a href="{% url 'api:details' data.id %}"><button class="continue"><span class="material-symbols-outlined back">
+                arrow_back_ios
+                </span>CONTINUE SHOPPING</button></a>
+            <button class="order">PLACE ORDER</button>
+
+        </div>
+       
+    </div>
+    <script>
+        key=localStorage.getItem()
+    </script>
+</div>
+{% endblock %}

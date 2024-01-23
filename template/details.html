@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+             <img class="i" src="{{data.thumbnail}}" alt="">
+             <a href=""><button class="add-to-cart" onclick="addtoloc(event,`{{data}}`,`{{data.id}}`)"><span class="material-symbols-outlined">
+              shopping_cart
+              </span > Add to cart</button></a>
+             <a href=""><button class="buy-now"><span class="material-symbols-outlined">
+              flash_on
+              </span>Buy now</button></a>
+            </div>
+            <div class="col-lg-7">
+              <h1>{{data.title}}</h1>
+              <p>{{data.description}}</p>
+              <h2 class="a"><span class="material-symbols-outlined">
+                currency_rupee
+                </span>{{data.price}}</h2>  <p class="a1">{{data.discountPercentage}}%off</p>
+              <p><span class="material-symbols-outlined star">
+                grade
+                </span> {{data.rating}}</p>
+              <p>category:{{data.category}}</p>   
+             
+            </div>
+        </div>
+      </div>
+      <script>
+          function addtoloc(e,data,id){
+            e.preventDefault()
+            
+          console.log(res);
+          localStorage.setItem(id,(JSON.stringify(data)))
+          }
+      </script>
+
+  {% endblock %}
+ 

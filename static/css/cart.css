@@ -1,0 +1,132 @@
+.img{width: 100%;}
+
+.order {
+    align-items: center;
+    background-color: rgb(213, 88, 10);
+    border: 2px solid rgb(241, 132, 7);
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .order:focus {
+    color: #171e29;
+  }
+  
+  .order:hover {
+    background-color: #ff3c00;
+    border-color: #ff5b03;
+    fill: rgb(242, 59, 3);
+  }
+  
+  .order:active {
+    background-color: #f87204;
+    border-color: #eb6206;
+    fill: rgb(243, 89, 6);
+  }
+  
+  @media (min-width: 768px) {
+    .order {
+      min-width: 170px;
+    }
+  }
+
+  .continue {
+    align-items: center;
+    background-color: rgb(255, 253, 252);
+    border: 2px solid rgb(104, 102, 99);
+    box-sizing: border-box;
+    color: #0d0d0d;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .continue:focus {
+    color: #171e29;
+  }
+  
+  .continue:hover {
+    background-color: #ff3c00;
+    border-color: #ff5b03;
+    fill: rgb(242, 59, 3);
+  }
+  
+  .continue:active {
+    background-color: #f87204;
+    border-color: #eb6206;
+    fill: rgb(243, 89, 6);
+  }
+  
+  @media (min-width: 768px) {
+    .continue {
+      min-width: 170px;
+    }
+  }
+
+  .back
+  {
+    font-size: 10px;
+  }
+  .discount
+  {
+    color: rgb(32, 238, 32);
+  }
+
+  .ma
+  {
+    margin-top: 3%;
+    border: 2px solid rgb(168, 157, 157);
+  }
+  .m
+  {
+    margin-top: 3%;
+
+  }
+  .price{
+    display: inline-block;
+  }
+  
+  .im
+  {
+    margin-top: 5%;
+  }
+
+  .c1
+  {
+    margin-top: 2%;
+  }
